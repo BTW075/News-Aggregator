@@ -9,7 +9,7 @@ class DataCollector:
     def get_data(self, url):
         response = requests.get(url)
         xmlContent = BeautifulSoup(response.content, 'xml')
-        return xmlContent.text
+        return xmlContent
     
     def get_titleList(self, xmlContent):
         titles = xmlContent.find_all('title')
