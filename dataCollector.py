@@ -42,7 +42,7 @@ class DataCollector:
         linkList = []
         
         for link in links:
-             l = link.text.strip
+             l = link.text.strip()
              linkList.append(l)
         return linkList
 
