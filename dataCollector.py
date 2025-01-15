@@ -46,6 +46,16 @@ class DataCollector:
              linkList.append(l)
         return linkList
 
+# TO retreive the list if all publish dates of the news
+def get_DateList(self, xmlContent):
+        pub_dates = xmlContent.find_all('pubDate')
+        DateList = []
+        
+        for dates in pub_dates:
+             p = dates.text.strip()
+             DateList.append(l)
+        return DateList
+
 
 
 if __name__ == '__main__':
