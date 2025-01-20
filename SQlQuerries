@@ -17,6 +17,7 @@ connection = psycopg2.connect(host = host,
 cursor = connection.cursor()
 
 #creating table
+# decide if want to make diffrent tables for categories and sources?
 table = "CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,Title VARCHAR(255) NOT NULL,Description VARCHAR(1000),Source VARCHAR(225)NOT NULL,Catagory VARCHAR(225) NOT NULL,PRIMARY KEY(id));"
 
 cursor.close()
