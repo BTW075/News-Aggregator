@@ -20,5 +20,16 @@ cursor = connection.cursor()
 # decide if want to make diffrent tables for categories and sources?
 table = "CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,Title VARCHAR(255) NOT NULL,Description VARCHAR(1000),Source VARCHAR(225)NOT NULL,Catagory VARCHAR(225) NOT NULL,PRIMARY KEY(id));"
 
+Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
+                            VALUES(ti,de,so,ca,li)    '''    
+
+title=[]
+description=[]
+source=[]
+category=[]
+link=[]  
+for ti , de,so,ca, li in zip(title,description,source,category,link):
+    cursor.execute(Insertion,(ti,de,so,ca,li))
+
 cursor.close()
 connection.close()
