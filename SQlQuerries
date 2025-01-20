@@ -1,0 +1,21 @@
+import psycopg2
+
+host = "localhost"
+port= "5432"
+database= "newsag"
+username= "postgres"
+password= "Nia@navya321"
+
+#CONNECTNG TO THE DATABASE
+connection = psycopg2.connect(host = host,
+                              port = port,
+                              bdname= database,
+                              user= username,
+                              pwd= password)
+
+#CREATING A CURSOR
+cursor = connection.cursor()
+
+
+cursor.close()
+connection.close()
