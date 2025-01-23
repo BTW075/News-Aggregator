@@ -64,3 +64,4 @@ if __name__ == '__main__':
     #print(test.get_titleList(test.get_data(test.url)))
     # print(test.get_descriptionList(test.get_data(test.url)))
     print(test.get_linkList(test.get_data(test.url)))
+    print()
