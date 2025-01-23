@@ -2,8 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 class DataCollector: 
-    def __init__(self, url):
+    def __init__(self, url, CatagoryKeyWord, sourceLink):
         self.url = url
+        self.CatagoryKeyWord
+        self. sourceLink
 
 # this method retreives the xml data as it is from the RSS feed url.
     def get_data(self, url):
@@ -18,14 +20,10 @@ class DataCollector:
         for title in titles:
              t = title.text.strip()
              titleList.append(t)
+        CatagoryKeyWord = titleList.pop(0) # Removes the first element from list and stores in variable
         return titleList
     
-    #might not need this one
-    # def get_title(self, titleList):
-    #     for i in range(len(titleList)):
-    #         each = titleList[i]
-    #         yield each # will give each title one by one but well see later
-
+    
 #Now to get the description of the news
     def get_descriptionList(self, xmlContent):
         description = xmlContent.find_all('description')
@@ -34,6 +32,7 @@ class DataCollector:
         for des in description:
              d = des.text.strip()
              descriptionList.append(d)
+        del descriptionList[0] #delete the first description
         return descriptionList
     
 # now to retreive the link to read more about the news
@@ -44,6 +43,7 @@ class DataCollector:
         for link in links:
              l = link.text.strip()
              linkList.append(l)
+        sourceLink = linkList.pop(0) # delete the first link and save it in variable.
         return linkList
 
 # TO retreive the list if all publish dates of the news
