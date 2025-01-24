@@ -38,3 +38,4 @@ for ti , de,so,ca, li in zip(title,description,source,category,link):
 
 cursor.close()
 connection.close()
+
