@@ -24,6 +24,7 @@ newstable = '''CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT
                             Source VARCHAR(225)NOT NULL,
                             Catagory VARCHAR(225) NOT NULL,
                             PRIMARY KEY(id));'''
+cursor.execute(newstable)
 
 Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
                             VALUES(ti,de,so,ca,li)'''    
