@@ -14,11 +14,19 @@ class LinkTraverser(DataCollector) :
 ## to traverse each link from the link file and print relevant data
     def traverse_links(self) :
         for link in self.links :
+            # link = Business, Times of India, rss feed url
+            seperateLinkItems = str.split(link,",")
+            category = seperateLinkItems[0]
+            source = seperateLinkItems[1]
+            feedLink = seperateLinkItems[2]
+            
             super().__init__(link)
-            xmlContent = self.get_data(link)
+            xmlContent = self.get_data(feedLink)
             titles = self.get_titleList(xmlContent)
             descriptions = self.get_descriptionList(xmlContent)
             news_links = self.get_linkList(xmlContent)
+
+            SQLQueries.store_feed(titles, description, news_links, category, source)
 
             self.show(titles, descriptions, news_links)
 
