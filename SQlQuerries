@@ -29,11 +29,7 @@ cursor.execute(newstable)
 Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
                             VALUES(ti,de,so,ca,li)'''    
 
-title=[]
-description=[]
-source=[]
-category=[]
-link=[]  
+
 for ti , de,so,ca, li in zip(title,description,source,category,link):
     cursor.execute(Insertion,(ti,de,so,ca,li))
 
