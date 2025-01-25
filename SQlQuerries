@@ -6,32 +6,26 @@ database= "newsag"
 username= "postgres"
 password= "Nia@navya321"
 
-#CONNECTNG TO THE DATABASE
-connection = psycopg2.connect(host = host,
+class SQLQueries:
+
+    def store_feed(title,description,source,category,news_link):
+
+        #CONNECTNG TO THE DATABASE
+        connection = psycopg2.connect(host = host,
                               port = port,
                               bdname= database,
                               user= username,
                               pwd= password)
+        
+        #CREATING A CURSOR
+        cursor = connection.cursor()
+        Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
+                                    VALUES(ti,de,so,ca,li)    '''    
 
-#CREATING A CURSOR
-cursor = connection.cursor()
+        for ti , de,so,ca, li in zip(title,description,news_link):
+            cursor.execute(Insertion,(ti,de,source,category,li))
 
-#creating table
-# decide if want to make diffrent tables for categories and sources?
-newstable = '''CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                            Title VARCHAR(255) NOT NULL,
-                            Description VARCHAR(1000),
-                            Source VARCHAR(225)NOT NULL,
-                            Catagory VARCHAR(225) NOT NULL,
-                            PRIMARY KEY(id));'''
-cursor.execute(newstable)
+        #connection.commit()
 
-Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
-                            VALUES(ti,de,so,ca,li)'''    
-
-
-for ti , de,so,ca, li in zip(title,description,source,category,link):
-    cursor.execute(Insertion,(ti,de,so,ca,li))
-
-cursor.close()
-connection.close()
+        cursor.close()
+        connection.close()
