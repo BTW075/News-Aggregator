@@ -13,7 +13,7 @@ class SQLQueries:
         #CONNECTNG TO THE DATABASE
         connection = psycopg2.connect(host = host,
                               port = port,
-                              bdname= database,
+                              dbname= database,
                               user= username,
                               pwd= password)
         
