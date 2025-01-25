@@ -1,10 +1,4 @@
 Health, ndtv, https://feeds.feedburner.com/ndtvcooks-latest
-Health, mint, 
-Health, mint,
-Health, hindustan times, 
-Health, india today, 
-Health, the hindu, 
-Health, news18,
-Health, abp,
-Health, india tv, 
-Health, business standard,
+Health, hindustan times, https://www.hindustantimes.com/feeds/rss/lifestyle/health/rssfeed.xml
+Health, abp, https://news.abplive.com/health/feed
+Health, business standard, https://www.business-standard.com/rss/health-185.rss
