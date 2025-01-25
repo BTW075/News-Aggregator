@@ -25,6 +25,7 @@ table = '''CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT NUL
                             Catagory VARCHAR(225) NOT NULL,
                             PRIMARY KEY(id));'''
 
+
 Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
                             VALUES(ti,de,so,ca,li)'''    
 
