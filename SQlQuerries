@@ -19,12 +19,11 @@ class SQLQueries:
         
         #CREATING A CURSOR
         cursor = connection.cursor()
-        Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
-                                    VALUES(ti,de,so,ca,li)    '''    
+        Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Category, Link)
+                                    VALUES(%s,%s,%s,%s,%s)'''
 
-        for ti , de,so,ca, li in zip(title,descriptions,news_link):
+        for ti , de, li in zip(title,description,news_link):
             cursor.execute(Insertion,(ti,de,source,category,li))
-
         #connection.commit()
 
         cursor.close()
