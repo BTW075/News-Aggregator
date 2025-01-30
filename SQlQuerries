@@ -8,7 +8,7 @@ password= "BTW075"
 
 class SQLQueries:
 
-    def store_feed(title,description,source,category,news_links):
+    def store_feed(title,description,source,category,news_links,pub_date):
 
         #CONNECTNG TO THE DATABASE
         connection = psycopg2.connect(host = host,
@@ -19,11 +19,11 @@ class SQLQueries:
         
         #CREATING A CURSOR
         cursor = connection.cursor()
-        Insertion = '''INSERT INTO test2 (title, description, source, category, link)
-                                    VALUES(%s, %s, %s, %s, %s)'''    
+        Insertion = '''INSERT INTO test3 (title, description, source, category, link, pub_date)
+                                    VALUES(%s, %s, %s, %s, %s, %s)'''    
 
-        for ti , de, li in zip(title,description,news_links):
-            cursor.execute(Insertion, (ti, de, source, category, li))
+        for ti , de, li, date in zip(title,description,news_links, pub_date):
+            cursor.execute(Insertion, (ti, de, source, category, li, date))
 
         connection.commit()
 
