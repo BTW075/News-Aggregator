@@ -2,29 +2,30 @@ import psycopg2
 
 host = "localhost"
 port= "5432"
-database= "newsag"
+database= "test"
 username= "postgres"
-password= "Nia@navya321"
+password= "BTW075"
 
 class SQLQueries:
 
-    def store_feed(title,descriptions,source,category,news_link):
+    def store_feed(title,description,source,category,news_links):
 
         #CONNECTNG TO THE DATABASE
         connection = psycopg2.connect(host = host,
                               port = port,
                               dbname= database,
                               user= username,
-                              pwd= password)
+                              password= password)
         
         #CREATING A CURSOR
         cursor = connection.cursor()
-        Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Category, Link)
-                                    VALUES(%s,%s,%s,%s,%s)'''
+        Insertion = '''INSERT INTO test2 (title, description, source, category, link)
+                                    VALUES(%s, %s, %s, %s, %s)'''    
 
-        for ti , de, li in zip(title,description,news_link):
-            cursor.execute(Insertion,(ti,de,source,category,li))
-        #connection.commit()
+        for ti , de, li in zip(title,description,news_links):
+            cursor.execute(Insertion, (ti, de, source, category, li))
+
+        connection.commit()
 
         cursor.close()
         connection.close()
