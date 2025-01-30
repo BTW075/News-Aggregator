@@ -2,10 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 
 class DataCollector: 
-    def __init__(self, url, CatagoryKeyWord, sourceLink):
-        self.url = url
-        self.CatagoryKeyWord
-        self. sourceLink
+    def __init__(self, url):
+        self.url = url        
 
 # this method retreives the xml data as it is from the RSS feed url.
     def get_data(self, url):
@@ -20,7 +18,7 @@ class DataCollector:
         for title in titles:
              t = title.text.strip()
              titleList.append(t)
-        CatagoryKeyWord = titleList.pop(0) # Removes the first element from list and stores in variable
+        CategoryKeyWord = titleList.pop(0) # Removes the first element from list and stores in variable
         return titleList
     
     
