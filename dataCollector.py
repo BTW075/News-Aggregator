@@ -11,47 +11,43 @@ class DataCollector:
         xmlContent = BeautifulSoup(response.content, 'xml')
         return xmlContent
     
-    def get_titleList(self, xmlContent):
-        titles = xmlContent.find_all('title')
+    def get_item(self, xmlContent):
+        items = xmlContent.find_all('item')
+        return items       
+         
+    
+    def get_titleList(self, items):
         titleList = []
-        #return titles
-        for title in titles:
-             t = title.text.strip()
-             titleList.append(t)
-        CategoryKeyWord = titleList.pop(0) # Removes the first element from list and stores in variable
+        # return titles
+        for item in items:
+            title = item.find('title').text.strip()
+            titleList.append(title)       
         return titleList
     
     
 #Now to get the description of the news
-    def get_descriptionList(self, xmlContent):
-        description = xmlContent.find_all('description')
+    def get_descriptionList(self, items):        
         descriptionList = []
         
-        for des in description:
-             d = des.text.strip()
-             descriptionList.append(d)
-        del descriptionList[0] #delete the first description
+        for item in items:
+             description = BeautifulSoup(item.find('description').text.strip(), 'html.parser').get_text()
+             descriptionList.append(description)        
         return descriptionList
     
 # now to retreive the link to read more about the news
-    def get_linkList(self, xmlContent):
-        links = xmlContent.find_all('link')
-        linkList = []
-        
-        for link in links:
-             l = link.text.strip()
-             linkList.append(l)
-        sourceLink = linkList.pop(0) # delete the first link and save it in variable.
+    def get_linkList(self, items):        
+        linkList = []        
+        for item in items:
+             link = item.find('link').text.strip()
+             linkList.append(link)        
         return linkList
 
 # TO retreive the list if all publish dates of the news
-def get_DateList(self, xmlContent):
-        pub_dates = xmlContent.find_all('pubDate')
-        DateList = []
-        
-        for dates in pub_dates:
-             p = dates.text.strip()
-             DateList.append(l)
+    def get_DateList(self, items):        
+        DateList = []        
+        for item in items:
+             pub_date = item.find('pubDate').text.strip()
+             DateList.append(pub_date)
         return DateList
 
 
@@ -59,7 +55,9 @@ def get_DateList(self, xmlContent):
 if __name__ == '__main__':
     test = DataCollector('https://timesofindia.indiatimes.com/rssfeeds/1898055.cms')
     test.get_data(test.url)
-    #print(test.get_titleList(test.get_data(test.url)))
-    # print(test.get_descriptionList(test.get_data(test.url)))
-    print(test.get_linkList(test.get_data(test.url)))
+    # print(test.get_titleList(test.get_item(test.get_data(test.url))))
+    print(test.get_descriptionList(test.get_item(test.get_data(test.url))))
+    # print(test.get_linkList(test.get_item(test.get_data(test.url))))
+    # print(test.get_DateList(test.get_item(test.get_data(test.url))))
+    
     print()
