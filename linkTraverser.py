@@ -26,7 +26,7 @@ class LinkTraverser(DataCollector) :
             descriptions = self.get_descriptionList(xmlContent)
             news_links = self.get_linkList(xmlContent)
 
-            SQLQueries.store_feed(titles, description, news_links, category, source)
+            SQLQueries.store_feed(titles, descriptions, news_links, category, source)
 
             self.show(titles, descriptions, news_links)
 
