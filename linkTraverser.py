@@ -1,5 +1,5 @@
 from dataCollector import DataCollector
-from SQLqueries import SQLQueries
+from sql import SQLQueries
 
 ## to inherit DataCollector 
 class LinkTraverser(DataCollector) :
@@ -23,18 +23,21 @@ class LinkTraverser(DataCollector) :
             
             super().__init__(link)
             xmlContent = self.get_data(feedLink)
-            titles = self.get_titleList(xmlContent)
-            descriptions = self.get_descriptionList(xmlContent)
-            news_links = self.get_linkList(xmlContent)
+            items = self.get_item(xmlContent)
+            titles = self.get_titleList(items)
+            descriptions = self.get_descriptionList(items)
+            news_links = self.get_linkList(items)
+            pub_date = self.get_DateList(items)
 
-            SQLQueries.store_feed(titles, descriptions, source, category, news_links)
+            SQLQueries.store_feed(titles, descriptions, source, category, news_links, pub_date)
 
-            self.show(titles, descriptions, news_links)
+            self.show(titles, descriptions, news_links,pub_date)
 
-    def show(self, titles, descriptions, news_links) :
+    def show(self, titles, descriptions, news_links, pub_date) :
         print(titles,"\n")
         print(descriptions,"\n")
-        print(news_links,"\n")            
+        print(news_links,"\n")
+        print(pub_date,"\n")            
 
 if __name__ == "__main__":
     link_traverser = LinkTraverser("business-RSS-Feeds.txt")
