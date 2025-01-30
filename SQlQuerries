@@ -8,7 +8,7 @@ password= "Nia@navya321"
 
 class SQLQueries:
 
-    def store_feed(title,description,source,category,news_link):
+    def store_feed(title,descriptions,source,category,news_link):
 
         #CONNECTNG TO THE DATABASE
         connection = psycopg2.connect(host = host,
@@ -22,7 +22,7 @@ class SQLQueries:
         Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
                                     VALUES(ti,de,so,ca,li)    '''    
 
-        for ti , de,so,ca, li in zip(title,description,news_link):
+        for ti , de,so,ca, li in zip(title,descriptions,news_link):
             cursor.execute(Insertion,(ti,de,source,category,li))
 
         #connection.commit()
