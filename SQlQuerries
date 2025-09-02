@@ -1,42 +1,37 @@
 import psycopg2
 
-host = "localhost"
-port= "5432"
-database= "newsag"
-username= "postgres"
-password= "Nia@navya321"
+def store_feed(titles, descriptions, links, category, source):
+    connection = psycopg2.connect(
+        host="localhost",
+        port="5432",
+        dbname="newsag",
+        user="postgres",
+        password="1234"
+    )
+    cursor = connection.cursor()
+    print("Database connected successfully")
 
-#CONNECTNG TO THE DATABASE
-connection = psycopg2.connect(host = host,
-                              port = port,
-                              dbname= database,
-                              user= username,
-                              pwd= password)
+    create_table = '''
+    CREATE TABLE IF NOT EXISTS NewsArticles (
+        id SERIAL PRIMARY KEY,
+        Title VARCHAR(255) NOT NULL,
+        Description TEXT,
+        Source VARCHAR(225) NOT NULL,
+        Catagory VARCHAR(225) NOT NULL,
+        Link TEXT
+    );
+    '''
+    cursor.execute(create_table)
+    print("Table created successfully")
 
-#CREATING A CURSOR
-cursor = connection.cursor()
+    insert_query = '''
+    INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
+    VALUES (%s, %s, %s, %s, %s);
+    '''
 
-#creating table
-# decide if want to make diffrent tables for categories and sources?
-table = '''CREATE TABLE IF NOT EXISTS NewsArticles( id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                            Title VARCHAR(255) NOT NULL,
-                            Description VARCHAR(1000),
-                            Source VARCHAR(225)NOT NULL,
-                            Catagory VARCHAR(225) NOT NULL,
-                            PRIMARY KEY(id));'''
+    for ti, de, li in zip(titles, descriptions, links):
+        cursor.execute(insert_query, (ti, de, source, category, li))
 
-
-Insertion = '''INSERT INTO NewsArticles (Title, Description, Source, Catagory, Link)
-                            VALUES(ti,de,so,ca,li)'''    
-
-title=[]
-description=[]
-source=[]
-category=[]
-link=[]  
-for ti , de,so,ca, li in zip(title,description,source,category,link):
-    cursor.execute(Insertion,(ti,de,so,ca,li))
-
-cursor.close()
-connection.close()
-
+    connection.commit()
+    cursor.close()
+    connection.close()
