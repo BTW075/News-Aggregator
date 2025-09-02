@@ -53,11 +53,9 @@ class DataCollector:
 
 
 if __name__ == '__main__':
-    test = DataCollector('https://timesofindia.indiatimes.com/rssfeeds/1898055.cms')
-    test.get_data(test.url)
+    test = DataCollector('https://timesofindia.indiatimes.com/rssfeeds/1898055.cms')    
     # print(test.get_titleList(test.get_item(test.get_data(test.url))))
-    print(test.get_descriptionList(test.get_item(test.get_data(test.url))))
+    # print(test.get_descriptionList(test.get_item(test.get_data(test.url))))
     # print(test.get_linkList(test.get_item(test.get_data(test.url))))
     # print(test.get_DateList(test.get_item(test.get_data(test.url))))
-    
     print()
