@@ -1,4 +1,5 @@
 from dataCollector import DataCollector
+import SQlQuerries
 
 ## to inherit DataCollector 
 class LinkTraverser(DataCollector) :
@@ -12,23 +13,30 @@ class LinkTraverser(DataCollector) :
             return [link.strip() for link in file.readlines()]
 
 ## to traverse each link from the link file and print relevant data
-    def traverse_links(self) :
-        for link in self.links :
-            # link = Business, Times of India, rss feed url
-            seperateLinkItems = str.split(link,",")
-            category = seperateLinkItems[0]
-            source = seperateLinkItems[1]
-            feedLink = seperateLinkItems[2]
-            
-            super().__init__(link)
-            xmlContent = self.get_data(feedLink)
-            titles = self.get_titleList(xmlContent)
-            descriptions = self.get_descriptionList(xmlContent)
-            news_links = self.get_linkList(xmlContent)
+    def traverse_links(self):
+        for link in self.links:
+            try:
+                category, source, feedLink = map(str.strip, link.split(","))
+                super().__init__(feedLink)
 
-            SQLQueries.store_feed(titles, descriptions, news_links, category, source)
+                xmlContent = self.get_data(feedLink)
+                items = self.get_item(xmlContent)
 
-            self.show(titles, descriptions, news_links)
+                if not items:
+                    print(f"No articles found in feed: {feedLink}")
+                    continue
+
+                titles = self.get_titleList(items)
+                descriptions = self.get_descriptionList(items)
+                news_links = self.get_linkList(items)
+
+                SQlQuerries.store_feed(titles, descriptions, news_links, category, source)
+
+                self.show(titles, descriptions, news_links)
+                print(f"Inserted {len(titles)} articles from {source} - {category}")
+
+            except Exception as e:
+                print(f"Error processing feed '{feedLink}' from {source}: {e}")
 
     def show(self, titles, descriptions, news_links) :
         print(titles,"\n")
@@ -36,5 +44,5 @@ class LinkTraverser(DataCollector) :
         print(news_links,"\n")            
 
 if __name__ == "__main__":
-    link_traverser = LinkTraverser("business-RSS-Feeds")
+    link_traverser = LinkTraverser("RSS-Feeds")
     link_traverser.traverse_links()
