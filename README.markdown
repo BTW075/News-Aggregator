@@ -88,4 +88,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Inspired by the need for a centralized news aggregation system.
 
 ## Contact
-For questions or suggestions, feel free to open an issue on GitHub or contact [your-email@example.com](mailto:your-email@example.com).
+For questions or suggestions, feel free to open an issue on GitHub or contact [burhanuddintelwala75@gmail.com](mailto:burhanuddintelwala75@gmail.com).
