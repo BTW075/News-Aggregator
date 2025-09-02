@@ -1,10 +1,62 @@
-https://timesofindia.indiatimes.com/rss.cms
-https://www.ndtv.com/rss
-https://www.livemint.com/rss
-https://www.hindustantimes.com/rss
-https://www.indiatoday.in/rss
-https://www.thehindu.com/rssfeeds/
-https://www.news18.com/rss/
-https://news.abplive.com/rss
-https://www.indiatvnews.com/rssfeed
-https://www.business-standard.com/rss-feeds/listing
+Top Stories, times of india, http://timesofindia.indiatimes.com/rssfeedstopstories.cms
+Top Stories, ndtv, https://feeds.feedburner.com/ndtvnews-top-stories
+Top Stories, hindustan times, https://www.hindustantimes.com/feeds/rss/top-news/rssfeed.xml
+Top Stories, india today, https://www.indiatoday.in/rss/1206584
+Top Stories, the hindu, https://www.thehindu.com/feeder/default.rss
+Top Stories, news18, https://www.news18.com/commonfeeds/v1/eng/rss/viral.xml
+Top Stories, abp, https://news.abplive.com/home/feed
+Top Stories, india tv, https://www.indiatvnews.com/rssnews/topstory.xml
+Top Stories, business standard, https://www.business-standard.com/rss/home_page_top_stories.rss
+Tech, times of india, http://timesofindia.indiatimes.com/rssfeeds/66949542.cms
+Tech, ndtv, https://feeds.feedburner.com/gadgets360-latest
+Tech, mint, https://www.livemint.com/rss/technology 
+Tech, hindustan times, https://www.hindustantimes.com/feeds/rss/technology/rssfeed.xml
+Tech, news18, https://www.news18.com/commonfeeds/v1/eng/rss/tech.xml
+Tech, abp, https://news.abplive.com/technology/feed
+Tech, business standard, https://www.business-standard.com/rss/technology-108.rss
+Sports, times of india, https://timesofindia.indiatimes.com/rssfeeds/4719148.cms
+Sports, ndtv, https://feeds.feedburner.com/ndtvsports-latest
+Sports, mint, https://www.livemint.com/rss/sports 
+Sports, hindustan times, https://www.hindustantimes.com/feeds/rss/sports/rssfeed.xml
+Sports, india today, https://www.indiatoday.in/rss/1206550
+Sports, the hindu, https://www.thehindu.com/sport/feeder/default.rss 
+Sports, news18, https://www.news18.com/commonfeeds/v1/eng/rss/sports.xml
+Sports, abp, https://news.abplive.com/sports/feed
+Sports, india tv, https://www.indiatvnews.com/rssnews/topstory-sports.xml
+Sports, business standard, https://www.business-standard.com/rss/sports-192.rss
+Health, ndtv, https://feeds.feedburner.com/ndtvcooks-latest
+Health, hindustan times, https://www.hindustantimes.com/feeds/rss/lifestyle/health/rssfeed.xml
+Health, abp, https://news.abplive.com/health/feed
+Health, business standard, https://www.business-standard.com/rss/health-185.rss
+Politics, mint, https://www.livemint.com/rss/politics
+Politics, hindustan times, https://www.hindustantimes.com/feeds/rss/india-and-the-elections/rssfeed.xml 
+Politics, news18, https://www.news18.com/commonfeeds/v1/eng/rss/politics.xml
+Politics, abp, https://news.abplive.com/elections/feed
+Politics, india tv, https://www.indiatvnews.com/rssnews/topstory-politics.xml
+Politics, business standard, https://www.business-standard.com/rss/politics-155.rss
+Entertainment, times of india, http://timesofindia.indiatimes.com/rssfeeds/1081479906.cms
+Entertainment, ndtv, https://feeds.feedburner.com/ndtvmovies-latest
+Entertainment, hindustan times, https://www.hindustantimes.com/feeds/rss/web-stories/entertainment/rssfeed.xml 
+Entertainment, the hindu, https://www.thehindu.com/entertainment/feeder/default.rss
+Entertainment, news18, https://www.news18.com/commonfeeds/v1/eng/rss/entertainment.xml
+Entertainment, abp, https://news.abplive.com/entertainment/television/feed
+Entertainment, india tv, https://www.indiatvnews.com/rssnews/topstory-entertainment.xml
+Entertainment, business standard,https://www.business-standard.com/rss/entertainment-193.rss
+India, times of india, http://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms
+India, ndtv, https://feeds.feedburner.com/ndtvnews-india-news
+India, hindustan times, https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml
+India, india today, https://www.indiatoday.in/rss/1206514
+India, the hindu, https://www.thehindu.com/news/national/feeder/default.rss
+India, news18, https://www.news18.com/commonfeeds/v1/eng/rss/india.xml
+India, abp, https://news.abplive.com/news/india/feed
+India, india tv, https://www.indiatvnews.com/rssnews/topstory-india.xml
+India, business standard, https://www.business-standard.com/rss/india-news-216.rss
+World, times of india, http://timesofindia.indiatimes.com/rssfeeds/296589292.cms
+World, ndtv, https://feeds.feedburner.com/ndtvnews-world-news
+World, hindustan times, https://www.hindustantimes.com/feeds/rss/videos/world-news/rssfeed.xml
+World, india today, https://www.indiatoday.in/rss/1206577
+World, the hindu, https://www.thehindu.com/news/international/feeder/default.rss
+World, news18, https://www.news18.com/commonfeeds/v1/eng/rss/world.xml
+World, abp, https://news.abplive.com/news/world/feed
+World, india tv, https://www.indiatvnews.com/rssnews/topstory-world.xml
+World, business standard, https://www.business-standard.com/rss/world-news-221.rss
